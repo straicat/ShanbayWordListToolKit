@@ -855,7 +855,7 @@ namespace ShanbayWordListToolKit
                 while ((line = sr.ReadLine()) != null)
                 {
                     //词条非空白时，去除首尾空格后加入输入列表
-                    if (!Regex.IsMatch(line, @"^\s*$"))
+                    if (!Regex.IsMatch(line, @"^\s*$") && Regex.IsMatch(line, @"^[a-zA-Z\- ]+$"))
                     {
                         inputList.Add(line.Trim());
                     }
@@ -1205,7 +1205,7 @@ namespace ShanbayWordListToolKit
             }
             //若词表分组被勾选，则进行分组处理
             //文件名
-            string fileName = Regex.Match(wordlistpath.Text, @"\\(.+)$").Groups[1].ToString();
+            string fileName = Regex.Match(wordlistpath.Text, @"\\([^\\]+?)\.?[a-zA-Z]*$").Groups[1].ToString();
             if (listgroup.Checked)
             {
                 if (Regex.IsMatch(groupnum.Text, @"^\d+$"))
@@ -1219,7 +1219,7 @@ namespace ShanbayWordListToolKit
                         {
                             for (int fileindex = 1; fileindex <= int.Parse(groupnum.Text); fileindex++)
                             {
-                                StreamWriter sw = new StreamWriter(fbd.SelectedPath + fileName + "_" + fileindex + @".txt");
+                                StreamWriter sw = new StreamWriter(fbd.SelectedPath + @"\" + fileName + "_" + fileindex + @".txt");
                                 for (int i = 0; i < wordList.Count / int.Parse(groupnum.Text); i++)
                                 {
                                     sw.WriteLine(wordList[(fileindex - 1) * wordList.Count / int.Parse(groupnum.Text) + i]);

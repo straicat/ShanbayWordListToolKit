@@ -275,7 +275,9 @@
             // 
             this.groupnum.FormattingEnabled = true;
             this.groupnum.Items.AddRange(new object[] {
+            "3",
             "5",
+            "8",
             "10",
             "15",
             "20"});
