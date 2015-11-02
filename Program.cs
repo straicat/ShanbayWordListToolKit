@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 
-namespace 单词书创建
+namespace ShanbayWordListToolKit
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace 单词书创建
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
