@@ -1,0 +1,2 @@
+# ShanbayWordListToolKit
+用于制作扇贝网单词书的小工具
